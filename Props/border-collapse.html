@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 border-collapse">
+  <title>CSS を試してみよう：RSE CSS Page - border-collapse</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#border-collapse {
+      display: inline-table;
+      border-collapse: separate;
+    }
+
+    th, td {
+      border: 5px solid #000;
+      font-size: 24px;
+      text-align: center;
+      background: rgb(200, 200, 255);
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > border-collapse
+      </div>
+      <h1>border-collapse</h1>
+      <p><b>border-collapse</b> は、テーブル要素においてセルが他のセルと境界線を共有するかどうか指定するプロパティです。初期値は <b>separate</b> です。</p>
+      <h2>border-collapse を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="border-collapse"
+            :values="[
+              { id: 1, text: 'separate', isSelected: true },
+              { id: 2, text: 'collapse', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <table class="output change" id="border-collapse">
+          <tbody>
+            <tr><th>NAME</th> <th>AGE</th> <th>HOBBY</th></tr>
+            <tr><td>Bob</td> <td>21</td> <td>rugby</td></tr>
+            <tr><td>Sum</td> <td>34</td> <td>guiter</td></tr>
+            <tr><td>Mac</td> <td>19</td> <td>soccer</td></tr>
+            <tr><td>Emie</td> <td>24</td> <td>tennis</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
