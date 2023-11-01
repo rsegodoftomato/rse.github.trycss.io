@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 background-color">
+  <title>CSS を試してみよう：RSE CSS Page - background-color</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#background-color {
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > background-color
+      </div>
+      <h1>background-color</h1>
+      <p><b>background-color</b> は、背景色を指定するプロパティです。キーワード、<a href="rgb-rgba.html">rgb/rgba</a>、<a href="hsl-hsla.html">hsl/hsla</a> などの値が使えます。初期値は <b>transparent</b> です。</p>
+      <h2>background-color を試す</h2>
+      <div class="try">
+        <div id="colors">
+          <color-select prop='backgroundColor' @color-select="colorSelect"></color-select>
+        </div>
+        <div class="select color" id="styles">
+          <styles-list
+            title="background-color"
+            :values="[
+              { id: 1, text: 'transparent', isSelected: true },
+              { id: 2, text: 'red', isSelected: false },
+              { id: 3, text: 'blue', isSelected: false },
+              { id: 4, text: 'green', isSelected: false },
+              { id: 5, text: 'orange', isSelected: false },
+              { id: 6, text: 'brown', isSelected: false },
+              { id: 7, text: '#666', isSelected: false },
+              { id: 8, text: '#f09', isSelected: false },
+              { id: 9, text: '#3a38', isSelected: false },
+              { id: 10, text: '#71b', isSelected: false },
+              { id: 11, text: 'rgb(98, 107, 235)', isSelected: false },
+              { id: 12, text: 'rgb(244, 85, 10)', isSelected: false },
+              { id: 13, text: 'rgba(30, 79, 255, .5)', isSelected: false },
+              { id: 14, text: 'rgba(0, 0, 0, .8)', isSelected: false },
+              { id: 15, text: 'hsl(270, 60%, 70%)', isSelected: false },
+              { id: 16, text: 'hsl(30, 80%, 40%)', isSelected: false },
+              { id: 17, text: 'hsla(240, 100%, 50%, .4)', isSelected: false },
+              { id: 18, text: 'hsla(170, 30%, 80%, .7)', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output change" id="background-color"></div>
+      </div>
+      <h2>補足</h2>
+      <p><b>rgb</b> や <b>hsl</b> などについての詳細は <a href="../Categories.html#color">色関連</a> のページをご覧ください。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+  <script src="../js/color.js"></script>
+</body>
+</html>
