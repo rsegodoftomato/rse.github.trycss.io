@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 max-inline-size">
+  <title>CSS を試してみよう：RSE CSS Page - max-inline-size</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#max-inline-size {
+      padding: 30px;
+      width: calc(95% - 60px);
+      height: 490px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content .try .output#max-inline-size .change {
+      width: 0%;
+      height: 100%;
+      font-size: 32px;
+      background: rgb(98, 107, 235);
+      border: 2px solid #000;
+      overflow: hidden;
+      max-inline-size: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > max-inline-size
+      </div>
+      <h1>max-inline-size</h1>
+      <p><b>max-inline-size</b> は、書字方向と水平な方向のブロックの大きさの下限を指定するプロパティです。初期値は <b>0</b> です。</p>
+      <h2>max-inline-size を試す</h2>
+      <p>以下、<b>width</b> は <b>0%</b> としています。</p>
+      <div class="try">
+        <div id="ranges">
+          <range-select
+            :props="{ prop: 'minInlineSize', unit: 'px', msg:'下限', min: 0, max: 650, step: 1 }"
+            @range-select="rangeSelect"
+          ></range-select>
+        </div>
+        <div class="output" id="max-inline-size">
+          <div class="change">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde enim quibusdam, ad voluptas, pariatur temporibus atque sed omnis officia voluptatem nobis perferendis repellendus cumque? Doloribus magni iure repellat neque earum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nisi, odio laboriosam alias ad laborum suscipit optio? Impedit nam consequatur corrupti exercitationem ducimus iure ut consequuntur qui error maiores. 
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/range.js"></script>
+</body>
+</html>
