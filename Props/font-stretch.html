@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 font-stretch">
+  <title>CSS を試してみよう：RSE CSS Page - font-stretch</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#font-stretch {
+      text-align: center;
+      line-height: 550px;
+      font-size: 32px;
+      font-stretch: condensed;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > font-stretch
+      </div>
+      <h1>font-stretch</h1>
+      <p><b>font-stretch</b> は、文字の伸縮を指定するプロパティです。初期値は <b>normal</b> です。</p>
+      <h2>font-stretch を試す</h2>
+      <div class="try">
+        <div id="ranges">
+          <range-select
+            :props="{ prop: 'fontStretch', unit: '%', msg:'伸縮サイズ', min: 10, max: 200, step: 1 }"
+            @range-select="rangeSelect"
+          ></range-select>
+        </div>
+        <div class="output change" id="font-stretch">Hello! How's it going?</div>
+      </div>
+      <h2>補足</h2>
+      <p><b>normal</b>、<b>expanded</b>、<b>condensed</b> などのキーワード値は、それぞれ特定のパーセント値に対応しています。詳しくは <a href="https://developer.mozilla.org/ja/docs/Web/CSS/font-stretch">こちら</a> (MDN リファレンス) まで。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/range.js"></script>
+</body>
+</html>
