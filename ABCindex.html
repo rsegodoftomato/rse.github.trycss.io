@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者">
+  <title>CSS を試してみよう：RSE CSS Page - ABC順</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="homepath"
+      :imgPath="imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main" id="indexes">
+    <div class="content">
+      <div class="loc">
+        <a href="index.html">ホーム</a> > 索引(ABC 順)
+      </div>
+      <h1>CSS プロパティの索引 (ABC 順)</h1>
+      <p>ここでは CSS プロパティを ABC 順に並べています。下の索引から行きたいところまで飛ぶことができます。</p>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <h2 id="a">A</h2>
+      <ul>
+        <!-- <li><a href="Props/align-content.html">align-content</a>：コンテナーの内部要素の交差軸方向の配置</li> -->
+        <li><a href="Props/align-items.html">align-items</a>：全ての直接の子要素の交差軸方向の配置</li>
+        <li><a href="Props/align-self.html">align-self</a>：親要素であるコンテナーに対する交差軸方向の配置</li>
+        <!-- <li><a href="Props/animation.html">animation</a>：スタイル間のアニメーションの一括指定プロパティ</li> -->
+        <li><a href="Props/animation-delay.html">animation-delay</a>：アニメーション開始までの時間</li>
+        <li><a href="Props/animation-direction.html">animation-direction</a>：アニメーションの方向/折り返しの有無</li>
+        <li><a href="Props/animation-duration.html">animation-duration</a>：アニメーションの再生時間</li>
+        <li><a href="Props/animation-fill-mode.html">animation-fill-mode</a>：アニメーションの前後のスタイル</li>
+        <li><a href="Props/animation-iteration-count.html">animation-iteration-count</a>：アニメーションを繰り返す回数</li>
+        <li><a href="Props/animation-name.html">animation-name</a>：アニメーションの名前</li>
+        <li><a href="Props/animation-play-state.html">animation-play-state</a>：アニメーションの停止と再生</li>
+        <li><a href="Props/animation-timing-function.html">animation-timing-function</a>：アニメーションの挙動</li>
+        <!-- <li><a href="Props/appearance.html">appearance</a></li> -->
+        <!-- <li><a href="Props/aspect-ratio.html">aspect-ratio</a></li> -->
+      </ul>
+      <h2 id="b">B</h2>
+      <ul>
+        <li><a href="Props/backdrop-filter.html">backdrop-filter</a>：背後要素の色相やぼかし</li>
+        <li><a href="Props/backface-visibility.html">backface-visibility</a>：立体要素の裏面のスタイル＊</li>
+        <!-- <li><a href="Props/background.html">background</a>：背景の一括指定プロパティ＊</li> -->
+        <li><a href="Props/background-attachment.html">background-attachment</a>：スクロール時の背景の挙動</li>
+        <li><a href="Props/background-blend-mode.html">background-blend-mode</a>：２種以上の背景の混合</li>
+        <li><a href="Props/background-clip.html">background-clip</a>：背景の拡張の度合</li>
+        <li><a href="Props/background-color.html">background-color</a>：背景色</li>
+        <li><a href="Props/background-image.html">background-image</a>：背景画像</li>
+        <li><a href="Props/background-origin.html">background-origin</a>：背景画像の配置</li>
+        <li><a href="Props/background-position.html">background-position</a>：背景画像の位置</li>
+        <li><a href="Props/background-repeat.html">background-repeat</a>：背景画像の繰り返し</li>
+        <li><a href="Props/background-size.html">background-size</a>：背景画像のサイズ</li>
+        <!-- <li><a href="Props/bleed.html">bleed</a></li> -->
+        <li><a href="Props/block-size.html">block-size</a>：要素ブロックのサイズ</li>
+        <!-- <li><a href="Props/border.html">border</a>：境界線の一括指定プロパティ</li> -->
+        <!-- <li><a href="Props/border-block.html">border-block</a></li> -->
+        <!-- <li><a href="Props/border-block-end.html">border-block-end</a></li> -->
+        <!-- <li><a href="Props/border-block-start.html">border-block-start</a></li> -->
+        <li><a href="Props/border-collapse.html">border-collapse</a>：セルの境界線の共有</li>
+        <li><a href="Props/border-color.html">border-color</a>：境界線の色</li>
+        <!-- <li><a href="Props/border-image.html">border-image</a>：境界線に使用する画像</li> -->
+        <!-- <li><a href="Props/border-inline.html">border-inline</a></li> -->
+        <li><a href="Props/border-radius.html">border-radius</a>：境界線の角の丸み</li>
+        <li><a href="Props/border-spacing.html">border-spacing</a>：セル間のスペースの大きさ</li>
+        <li><a href="Props/border-style.html">border-style</a>：境界線のスタイル</li>
+        <li><a href="Props/border-width.html">border-width</a>：境界線の幅</li>
+        <!-- <li><a href="Props/bottom.html">bottom</a></li> -->
+        <!-- <li><a href="Props/box-decoration-break.html">box-decoration-break</a></li> -->
+        <li><a href="Props/box-shadow.html">box-shadow</a>：要素ボックスの影</li>
+        <li><a href="Props/box-sizing.html">box-sizing</a>：要素全体のサイズ</li>
+      </ul>
+      <h2 id="c">C</h2>
+      <ul>
+        <li><a href="Props/caption-side.html">caption-side</a>：テーブル要素のキャプションの位置</li>
+        <li><a href="Props/caret-color.html">caret-color</a>：キャレットの色</li>
+        <li><a href="Props/clear.html">clear</a>：浮動要素に対する位置</li>
+        <li><a href="Props/clip-path.html">clip-path</a>：要素のクリッピング(切り抜き)領域</li>
+        <li><a href="Props/color.html">color</a>：文字色</li>
+        <li><a href="Props/column-count.html">column-count</a>：段の数</li>
+        <!-- <li><a href="Props/column-fill.html">column-fill</a>：段の幅</li> -->
+        <li><a href="Props/column-gap.html">column-gap</a>：段や列の間隔</li>
+        <li><a href="Props/column-span.html">column-span</a>：要素を段にまたがらせる</li>
+        <li><a href="Props/column-width.html">column-width</a>：段の幅</li>
+        <!-- <li><a href="Props/contain.html">contain</a></li> -->
+        <!-- <li><a href="Props/content.html">content</a>：要素の置き換え</li> -->
+        <!-- <li><a href="Props/counter-increment.html">counter-increment</a>：カウンターの値を増加</li> -->
+        <!-- <li><a href="Props/counter-reset.html">counter-reset</a>：カウンターの値をリセット</li> -->
+        <li><a href="Props/cursor.html">cursor</a>：カーソルのスタイル</li>
+      </ul>
+      <h2 id="d">D</h2>
+      <ul>
+        <li><a href="Props/direction.html">direction</a>：文書の方向</li>
+        <li><a href="Props/display.html">display</a>：内外部の表示型</li>
+      </ul>
+      <h2 id="e">E</h2>
+      <ul>
+        <li><a href="Props/empty-cells.html">empty-cells</a>：内容の無いセルの表示/非表示</li>
+        <!-- <li><a href="Props/enable-background.html">enable-background</a></li> -->
+      </ul>
+      <h2 id="f">F</h2>
+      <ul>
+        <!-- <li><a href="Props/fallback.html">fallback</a></li> -->
+        <!-- <li><a href="Props/fill-opacity.html">fill-opacity</a></li> -->
+        <!-- <li><a href="Props/fill-rule.html">fill-rule</a></li> -->
+        <li><a href="Props/filter.html">filter</a>：要素へのグラフィック効果</li>
+        <li><a href="Props/flex-basis.html">flex-basis</a>：フレックスアイテムの寸法(長さ単位)</li>
+        <li><a href="Props/flex-direction.html">flex-direction</a>：主軸の方向と向き</li>
+        <li><a href="Props/flex-grow.html">flex-grow</a>：フレックスアイテムの寸法(伸長係数)</li>
+        <li><a href="Props/flex-shrink.html">flex-shrink</a>：フレックスアイテムの縮小係数</li>
+        <li><a href="Props/flex-wrap.html">flex-wrap</a>：フレックスアイテムの折り返し</li>
+        <li><a href="Props/float.html">float</a>：要素のフロート</li>
+        <!-- <li><a href="Props/flood-color.html">flood-color</a></li> -->
+        <!-- <li><a href="Props/flood-opacity.html">flood-opacity</a></li> -->
+        <!-- <li><a href="Props/font-display.html">font-display</a></li> -->
+        <li><a href="Props/font-family.html">font-family</a>：フォントファミリーの優先順位</li>
+        <!-- <li><a href="Props/font-feature-settings.html">font-feature-settings</a></li> -->
+        <!-- <li><a href="Props/font-kerning.html">font-kerning</a></li> -->
+        <!-- <li><a href="Props/optical-sizing.html">optical-sizing</a></li> -->
+        <li><a href="Props/font-size.html">font-size</a>：文字のサイズ</li>
+        <!-- <li><a href="Props/font-size-adjust.html">font-size-adjust</a></li> -->
+        <!-- <li><a href="Props/font-stretch.html">font-stretch</a>：文字の伸縮</li> -->
+        <li><a href="Props/font-style.html">font-style</a>：文字の書体</li>
+        <!-- <li><a href="Props/font-synthesis.html">font-synthesis</a></li> -->
+        <!-- <li><a href="Props/font-variant-alternates.html">font-variant-alternates</a></li> -->
+        <li><a href="Props/font-variant-caps.html">font-variant-caps</a>：代替文字の使用</li>
+        <!-- <li><a href="Props/font-variant-east-asian.html">font-variant-east-asian</a></li> -->
+        <!-- <li><a href="Props/font-variant-numeric.html">font-variant-numeric</a>：数字の表記制御</li> -->
+        <!-- <li><a href="Props/font-variant-position.html">font-variant-position</a></li> -->
+        <!-- <li><a href="Props/font-variation-settings.html">font-variation-settings</a></li> -->
+        <li><a href="Props/font-weight.html">font-weight</a>：文字の太さ</li>
+      </ul>
+      <h2 id="g">G</h2>
+      <ul>
+        <!-- <li><a href="Props/grid-area.html">grid-area</a></li> -->
+        <!-- <li><a href="Props/grid-auto-columns.html">grid-auto-columns</a></li> -->
+        <li><a href="Props/grid-auto-flow.html">grid-auto-flow</a>：グリッドアイテムをそろえる</li>
+        <!-- <li><a href="Props/grid-auto-rows.html">grid-auto-rows</a></li> -->
+        <li><a href="Props/grid-column.html">grid-column</a>：グリッドアイテムの列方向の寸法</li>
+        <li><a href="Props/grid-row.html">grid-row</a>：グリッドアイテムの行方向の寸法</li>
+        <!-- <li><a href="Props/grid-template-areas.html">grid-template-areas</a></li> -->
+        <!-- <li><a href="Props/grid-template-columns.html">grid-template-columns</a></li> -->
+        <!-- <li><a href="Props/grid-template-rows.html">grid-template-rows</a></li> -->
+      </ul>
+      <h2 id="h">H</h2>
+      <ul>
+        <li><a href="Props/height.html">height</a>：要素の高さ</li>
+      </ul>
+      <h2 id="i">I</h2>
+      <ul>
+        <!-- <li><a href="Props/image-rendering.html">image-rendering</a></li> -->
+        <li><a href="Props/inline-size.html">inline-size</a>：要素の書字方向の寸法</li>
+        <!-- <li><a href="Props/isolation.html">isolation</a></li> -->
+      </ul>
+      <h2 id="j">J</h2>
+      <ul>
+        <li><a href="Props/justify-content.html">justify-content</a>：内部要素の主軸方向の配置</li>
+        <!-- <li><a href="Props/justify-items.html">justify-items</a>：全ての直接の子要素の主軸方向の配置</li> -->
+        <!-- <li><a href="Props/justify-self.html">justify-self</a>：親要素であるコンテナーに対する主軸方向の配置</li> -->
+      </ul>
+      <h2 id="k">K</h2>
+      <p>プロパティはありません(廃止、非推奨、ブラウザ非対応、未実装)。</p>
+      <h2 id="l">L</h2>
+      <ul>
+        <li><a href="Props/left.html">left</a>：位置指定要素の左からの相対距離</li>
+        <li><a href="Props/letter-spacing.html">letter-spacing</a>：文字間の距離</li>
+        <!-- <li><a href="Props/line-break.html">line-break</a></li> -->
+        <!-- <li><a href="Props/line-clamp.html">line-clamp</a></li> -->
+        <li><a href="Props/line-height.html">line-height</a>：行の高さ</li>
+        <li><a href="Props/list-style-image.html">list-style-image</a>：リスト要素のマーカーに使う画像</li>
+        <li><a href="Props/list-style-position.html">list-style-position</a>：リスト要素のマーカーの位置</li>
+        <li><a href="Props/list-style-type.html">list-style-type</a>：リスト要素のマーカーの種類</li>
+      </ul>
+      <h2 id="m">M</h2>
+      <ul>
+        <li><a href="Props/margin.html">margin</a>：要素のマージン領域</li>
+        <!-- <li><a href="Props/marker.html">marker</a></li> -->
+        <!-- <li><a href="Props/mask.html">mask</a></li> -->
+        <li><a href="Props/max-block-size.html">max-block-size</a>：書字方向に垂直な方向の大きさの上限</li>
+        <li><a href="Props/max-height.html">max-height</a>：要素の高さの上限</li>
+        <li><a href="Props/max-inline-size.html">max-inline-size</a>：書字方向に水平の方向の大きさの上限</li>
+        <li><a href="Props/max-width.html">max-width</a>：要素の幅の上限</li>
+        <li><a href="Props/min-block-size.html">min-block-size</a>：書字方向に垂直な方向の大きさの下限</li>
+        <li><a href="Props/min-height.html">min-height</a>：要素の高さの下限</li>
+        <li><a href="Props/min-inline-size.html">min-inline-size</a>：書字方向に水平の方向の大きさの下限</li>
+        <li><a href="Props/min-width.html">min-width</a>：要素の幅の下限</li>
+        <li><a href="Props/mix-blend-mode.html">mix-blend-mode</a>：要素と親要素の混合</li>
+      </ul>
+      <h2 id="n">N</h2>
+      <p>プロパティはありません(廃止、非推奨、ブラウザ非対応、未実装)。</p>
+      <h2 id="o">O</h2>
+      <ul>
+        <li><a href="Props/object-fit.html">object-fit</a>：置換要素の埋め込みスタイル</li>
+        <!-- <li><a href="Props/object-posiiton.html">object-posiiton</a>：置換要素の配置</li> -->
+        <!-- <li><a href="Props/offset.html">offset</a></li> -->
+        <li><a href="Props/opacity.html">opacity</a>：透明度</li>
+        <li><a href="Props/order.html">order</a>：アイテムの順序</li>
+        <!-- <li><a href="Props/orientation.html">orientation</a></li> -->
+        <!-- <li><a href="Props/orphans.html">orphans</a></li> -->
+        <li><a href="Props/outline-color.html">outline-color</a>：輪郭線の色</li>
+        <li><a href="Props/outline-offset.html">outline-offset</a>：要素と輪郭線との間隔</li>
+        <li><a href="Props/outline-style.html">outline-style</a>：輪郭線のスタイル</li>
+        <li><a href="Props/outline-width.html">outline-width</a>：輪郭線の幅</li>
+        <li><a href="Props/overflow.html">overflow</a>：はみ出し部分のスタイル</li>
+        <!-- <li><a href="Props/overflow-anchor.html">overflow-anchor</a></li> -->
+        <!-- <li><a href="Props/overflow-wrap.html">overflow-wrap</a></li> -->
+      </ul>
+      <h2 id="p">P</h2>
+      <ul>
+        <li><a href="Props/padding.html">padding</a>：要素のパディング領域</li>
+        <!-- <li><a href="Props/padding-block-end.html">padding-block-end</a></li> -->
+        <!-- <li><a href="Props/padding-block-start.html">padding-block-start</a></li> -->
+        <!-- <li><a href="Props/padding-inline-end.html">padding-inline-end</a></li> -->
+        <!-- <li><a href="Props/padding-inline-start.html">padding-inline-start</a></li> -->
+        <!-- <li><a href="Props/paint-order.html">paint-order</a></li> -->
+        <!-- <li><a href="Props/perspective.html">perspective</a></li> -->
+        <!-- <li><a href="Props/perspective-origin.html">perspective-origin</a></li> -->
+        <!-- <li><a href="Props/pointer-events.html">pointer-events</a></li> -->
+      </ul>
+      <h2 id="q">Q</h2>
+      <p>プロパティはありません(廃止、非推奨、ブラウザ非対応、未実装)。</p>
+      <!-- <ul>
+        <li><a href="Props/quotes.html">quotes</a></li>
+      </ul> -->
+      <h2 id="r">R</h2>
+      <ul>
+        <!-- <li><a href="Props/resize.html">resize</a></li> -->
+        <li><a href="Props/right.html">right</a>：位置指定要素の右からの相対距離</li>
+      </ul>
+      <h2 id="s">S</h2>
+      <!-- <ul>
+        <li><a href="Props/scroll-behavior.html">scroll-behavior</a>：スクロールの挙動</li>
+        <li><a href="Props/scroll-snap-type.html">scroll-snap-type</a></li>
+        <li><a href="Props/src.html">src</a></li>
+        <li><a href="Props/stroke.html">stroke</a></li>
+      </ul> -->
+      <p>プロパティはありません(廃止、非推奨、ブラウザ非対応、未実装)。</p>
+      <h2 id="t">T</h2>
+      <ul>
+        <li><a href="Props/table-layout.html">table-layout</a>：テーブル要素のレイアウト</li>
+        <li><a href="Props/text-align.html">text-align</a>：要素の水平方向の配置</li>
+        <!-- <li><a href="Props/text-align-last.html">text-align-last</a></li> -->
+        <!-- <li><a href="Props/text-combine-upright.html">text-combine-upright</a></li> -->
+        <li><a href="Props/text-decoration-color.html">text-decoration-color</a>：テキスト装飾の色</li>
+        <li><a href="Props/text-decoration-line.html">text-decoration-line</a>：テキスト装飾(線)の種類</li>
+        <li><a href="Props/text-decoration-skip-ink.html">text-decoration-skip-ink</a>：テキスト装飾(線)の通り方</li>
+        <li><a href="Props/text-decoratino-style.html">text-decoratino-style</a>：テキスト装飾(線)のスタイル</li>
+        <!-- <li><a href="Props/text-emphasis.html">text-emphasis</a></li> -->
+        <li><a href="Props/text-indent.html">text-indent</a>：テキストの字下げ</li>
+        <!-- <li><a href="Props/text-justify.html">text-justify</a></li> -->
+        <!-- <li><a href="Props/text-orientation.html">text-orientation</a>：縦書きテキストの向き</li> -->
+        <!-- <li><a href="Props/text-overflow.html">text-overflow</a></li> -->
+        <!-- <li><a href="Props/text-rendering.html">text-rendering</a></li> -->
+        <li><a href="Props/text-shadow.html">text-shadow</a>：テキストの影</li>
+        <!-- <li><a href="Props/text-transform.html">text-transform</a></li> -->
+        <!-- <li><a href="Props/text-underline-offset.html">text-underline-offset</a></li> -->
+        <!-- <li><a href="Props/text-underline-position.html">text-underline-position</a></li> -->
+        <li><a href="Props/top.html">top</a>：位置指定要素の上からの相対距離</li>
+        <!-- <li><a href="Props/touch-action.html">touch-action</a></li> -->
+        <!-- <li><a href="Props/transform.html">transform</a></li> -->
+        <!-- <li><a href="Props/transform-box.html">transform-box</a></li> -->
+        <!-- <li><a href="Props/transform-origin.html">transform-origin</a></li> -->
+        <!-- <li><a href="Props/transform-style.html">transform-style</a></li> -->
+        <li><a href="Props/transition-delay.html">transition-delay</a>：トランジション開始までの時間</li>
+        <li><a href="Props/transition-duration.html">transition-duration</a>：トランジションにかかる時間</li>
+        <li><a href="Props/transition-property.html">transition-property</a>：トランジションを適用するプロパティの選択</li>
+        <li><a href="Props/transition-timing-function.html">transition-timing-function</a>：トランジションの挙動</li>
+      </ul>
+      <h2 id="u">U</h2>
+      <ul>
+        <!-- <li><a href="Props/unicode-bidi.html">unicode-bidi</a></li> -->
+        <!-- <li><a href="Props/unicode-range.html">unicode-range</a></li> -->
+        <li><a href="Props/user-select.html">user-select</a>：ユーザー選択の挙動</li>
+      </ul>
+      <h2 id="v">V</h2>
+      <ul>
+        <!-- <li><a href="Props/vertical-align.html">vertical-align</a></li> -->
+        <li><a href="Props/visibility.html">visibility</a>：レイアウトの影響を含めた要素の表示/非表示</li>
+      </ul>
+      <h2 id="w">W</h2>
+      <ul>
+        <!-- <li><a href="Props/white-space.html">white-space</a></li> -->
+        <!-- <li><a href="Props/widows.html">widows</a></li> -->
+        <li><a href="Props/width.html">width</a>：要素の幅</li>
+        <!-- <li><a href="Props/will-change.html">will-change</a></li> -->
+        <!-- <li><a href="Props/word-break.html">word-break</a></li> -->
+        <li><a href="Props/word-spacing.html">word-spacing</a>：単語の間隔</li>
+        <!-- <li><a href="Props/word-break.html">word-break</a></li> -->
+        <li><a href="Props/writing-mode.html">writing-mode</a>：テキストの向き</li>
+      </ul>
+      <h2 id="x">X</h2>
+      <p>プロパティはありません(廃止、非推奨、ブラウザ非対応、未実装)。</p>
+      <h2 id="y">Y</h2>
+      <p>プロパティはありません(廃止、非推奨、ブラウザ非対応、未実装)。</p>
+      <h2 id="z">Z</h2>
+      <ul>
+        <li><a href="Props/z-index.html">z-index</a>：位置指定要素の重なる順番</li>
+      </ul>
+      <h2 id="other">その他</h2>
+      <p>開発中です。</p>
+      <div class="top"><a href="#top">トップへ</a></div>
+    </div>
+    <nav>
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
