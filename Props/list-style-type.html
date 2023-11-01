@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 list-style-type">
+  <title>CSS を試してみよう：RSE CSS Page - list-style-type</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../types/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#list-style-type {
+      width: calc(95% - 60px);
+      height: 490px;
+      padding: 60px;
+    }
+
+    .content .try .output#list-style-type .change {
+      list-style-type: disc;
+    }
+
+    .content .try .output#list-style-type .change li {
+      font-size: 36px;
+      line-height: 2.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > list-style-type
+      </div>
+      <h1>list-style-type</h1>
+      <p><b>list-style-type</b> は、リスト要素における項目のマーカーの種類を指定するプロパティです。初期値は <b>disc</b> です。</p>
+      <h2>list-style-type を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="list-style-type"
+            :values="[
+              { id: 1, text: 'disc', isSelected: true },
+              { id: 2, text: 'none', isSelected: false },
+              { id: 3, text: 'circle', isSelected: false },
+              { id: 4, text: 'square', isSelected: false },
+              { id: 5, text: 'decimal', isSelected: false },
+              { id: 6, text: 'decimal-leading-zero', isSelected: false },
+              { id: 7, text: 'lower-roman', isSelected: false },
+              { id: 8, text: 'upper-roman', isSelected: false },
+              { id: 9, text: 'lower-latin', isSelected: false },
+              { id: 10, text: 'upper-latin', isSelected: false },
+              { id: 11, text: 'armenian', isSelected: false },
+              { id: 12, text: 'georgian', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="list-style-type">
+          <ul class="change">
+            <li>こんにちは。私は項目１です。</li>
+            <li>こんにちは。私は項目２です。</li>
+            <li>こんにちは。私は項目３です。</li>
+            <li>こんにちは。私は項目４です。</li>
+            <li>こんにちは。私は項目５です。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
