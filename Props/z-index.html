@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 z-index">
+  <title>CSS を試してみよう：RSE CSS Page - z-index</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#z-index div {
+      position: relative;
+      width: 250px;
+      height: 200px;
+      border: 2px solid #000;
+      background: rgb(200, 200, 255);
+      text-align: center;
+      line-height: 200px;
+      font-size: 32px;
+    }
+
+    .content .try .output#z-index div.change {
+      width: 350px;
+      height: 250px;
+      background: pink;
+      line-height: 250px;
+      z-index: auto;
+      left: 200px;
+      top: -670px;
+    }
+
+    #one {
+      left: 50px;
+      top: 20px;
+      z-index: 1;
+    }
+
+    #three {
+      left: 470px;
+      top: -185px;
+      z-index: 3;
+    }
+
+    #five {
+      left: 50px;
+      top: -90px;
+      z-index: 5;
+    } 
+
+    #seven {
+      left: 470px;
+      top: -300px;
+      z-index: 7;
+    } 
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > z-index
+      </div>
+      <h1>z-index</h1>
+      <p><b>z-index</b> は、位置指定要素の重なる順番を指定します。初期値は <b>auto</b> です。</p>
+      <h2>z-index を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="z-index"
+            :values="[
+              { id: 1, text: 'auto', isSelected: true },
+              { id: 2, text: '-1', isSelected: false },
+              { id: 3, text: '2', isSelected: false },
+              { id: 4, text: '4', isSelected: false },
+              { id: 5, text: '6', isSelected: false },
+              { id: 6, text: '8', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="z-index">
+          <div id="one">1</div>
+          <div id="three">3</div>
+          <div id="five">5</div>
+          <div id="seven">7</div>
+          <div class="change">YOU</div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
