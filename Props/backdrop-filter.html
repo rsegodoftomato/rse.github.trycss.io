@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 backdrop-filter">
+  <title>CSS を試してみよう：RSE CSS Page - backdrop-filter</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#backdrop-filter {
+      background-image: url('../images/mountain.jpg');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content .try .output#backdrop-filter .change {
+      width: 400px;
+      height: 200px;
+      background: rgba(255, 255, 255, .3);
+      font-size: 45px;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 200px;
+      backdrop-filter: blur(2px);
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > backdrop-filter
+      </div>
+      <h1>backdrop-filter</h1>
+      <p><b>backdrop-filter</b> は、要素の背後の領域に関するスタイルを指定するプロパティです。初期値は <b>none</b> です。</p>
+      <div class="attention">
+        <p>※ このプロパティによる効果を目に見えるようにするには、スタイルを適用する要素の背後の領域や背景、透明な要素などが必要です。</p>
+      </div>
+      <h2>backdrop-filter を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="backdrop-filter"
+            :values="[
+              { id: 1, text: 'blur(2px)', isSelected: true },
+              { id: 2, text: 'blur(15px)', isSelected: false },
+              { id: 3, text: 'brightness(20%)', isSelected: false },
+              { id: 4, text: 'brightness(80%)', isSelected: false },
+              { id: 5, text: 'contrast(20%)', isSelected: false },
+              { id: 6, text: 'contrast(80%)', isSelected: false },
+              { id: 7, text: 'drop-shadow(20px 20px 5px #000)', isSelected: false },
+              { id: 8, text: 'greyscale(40%)', isSelected: false },
+              { id: 9, text: 'hue-rotate(80deg)', isSelected: false },
+              { id: 10, text: 'hue-rotate(240deg)', isSelected: false },
+              { id: 11, text: 'invert(20%)', isSelected: false },
+              { id: 12, text: 'invert(80%)', isSelected: false },
+              { id: 13, text: 'opacity(40%)', isSelected: false },
+              { id: 14, text: 'sepia(20%)', isSelected: false },
+              { id: 15, text: 'sepia(80%)', isSelected: false },
+              { id: 16, text: 'saturate(20%)', isSelected: false },
+              { id: 17, text: 'saturate(80%)', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="backdrop-filter">
+          <div class="change">Hello World!</div>
+        </div>
+      </div>
+      <div class="quate"><a href="https://pixabay.com/ja/users/danfador-55851/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=190055">Dan Fador</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=190055">Pixabay</a>からの画像</div>
+      <h2>補足</h2>
+      <p>このプロパティに指定できる値は、主に <a href="../Categories.html#filter-function">filter 関数</a> の値です。詳細な値については個々のプロパティのページへ。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
