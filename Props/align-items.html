@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 align-items">
+  <title>CSS を試してみよう：RSE CSS Page - align-items</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#align-items {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: normal;
+    }
+
+    .content .try .output.grid#align-items {
+      display: grid;
+      grid-template-rows: 30% 30%;
+      grid-template-columns: 30% 30% 30%;
+    }
+
+    .content .try .output#align-items div {
+      width: 30%;
+      font-size: 24px;
+      text-align: center;
+      border: 2px solid rgb(95, 102, 201);
+      background: rgb(226, 236, 255);
+      color: rgb(3, 3, 126);
+      line-height: 100px;
+    }
+
+    .content .try .output#align-items div:nth-of-type(odd) {
+      line-height: 200px;
+    }
+
+    .content .try .output.grid#align-items div {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > align-items
+      </div>
+      <h1>align-items</h1>
+      <p><b>align-items</b> は、コンテナー内の全ての直接の子要素に対し、交差軸方向の配置方法を指定します。内部的には、それらの全ての子要素に対し <a href="align-self.html">align-self</a> の値を指定します。軸の方向に関する指定 ( <a href="flex-direction.html">flex-direction</a> など) がない限り、縦方向の配置を指定する形になります。初期値は <b>normal</b> です。</p>
+      <div class="attention">
+        <p>※ 主に <a href="display.html">display</a> プロパティが <b>flex</b> または <b>grid</b> のときに有効です。また、<a href="flex-wrap.html">flex-wrap</a> プロパティが <b>nowrap</b> のときは無効になります。</p>
+      </div>
+      <h2>align-items を試す</h2>
+      <form class="radio" id="display">
+        <p><b>display</b> プロパティを選択：</p>
+        <input type="radio" id="flex" name="display" value="flex" checked>
+        <label for="flex">flex</label>
+        <input type="radio" id="grid" name="display" value="grid">
+        <label for="grid">grid</label>
+      </form>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="align-items"
+            :values="[
+              { id: 1, text: 'normal', isSelected: true },
+              { id: 2, text: 'flex-start', isSelected: false },
+              { id: 3, text: 'flex-end', isSelected: false },
+              { id: 4, text: 'center', isSelected: false },
+              { id: 5, text: 'start', isSelected: false },
+              { id: 6, text: 'end', isSelected: false },
+              { id: 7, text: 'self-start', isSelected: false },
+              { id: 8, text: 'self-end', isSelected: false },
+              { id: 9, text: 'baseline', isSelected: false },
+              { id: 10, text: 'first baseline', isSelected: false },
+              { id: 11, text: 'last baseline', isSelected: false },
+              { id: 12, text: 'stretch', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output change" id="align-items">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+  <script src="../js/toggle.js"></script>
+</body>
+</html>
