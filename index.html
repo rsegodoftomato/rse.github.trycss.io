@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者">
+  <title>CSS を試してみよう：RSE CSS Page</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/horse.png">
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'./' + homepath"
+      :imgPath="imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="intro">
+    <img src="images/horse2.jpg" alt="馬の画像">
+    <div>
+      <p id="h-title">CSS を試してみよう</p>
+      <p>ー ここでは、CSS によるスタイルを直感的に試すことができます。</p>
+    </div>
+  </div>
+  <div class="main">
+    <div class="content">
+      <h1>RSE CSS Page にようこそ！</h1>
+      <p>RSE CSS Page では、CSS におけるスタイリングに関して、その色相やスタイルの種類などを視覚的・直感的に操作して試すことができます。どういった部品にどういったスタイルを施せばよいのか、自分に合ったスタイリングを見つけるのに最適なページです。このページが皆さんの創作活動に役立つことが出来れば幸いです。</p>
+      <p>また、ウェブページ開発における豆知識やテクニックなども載せていますので、そちらもぜひ覗いてみてください。こういうテクニックがあるよ、というのも大歓迎ですので、<a href="#inq">お問い合わせ</a>から開発者へお知らせください。</p>
+      <div class="attention">
+        <p>※ 本ページは「さっと CSS によるスタイルを試せる」をコンセプトにしているため、詳しい仕様などは省きます。詳しく知りたい方は、後に紹介するリファレンスサイトなどを参照してください。</p>
+        <p>※ また、本ページは IE や Chrome、Edge などのブラウザを対象として想定しているため、それらでサポートされていないプロパティや値に関しては省略させていただきます。何か追加してほしいプロパティなどがあればお問い合わせください。</p>
+      </div>
+      <div class="caution">
+        <p>※ 本サイトは α版 です。いくつか開発中のページもありますので、ご注意ください。</p>
+      </div>
+      <h2>筆者について</h2>
+      <p>大学生です。独学でウェブ制作を学んでいます。他にはアプリ制作・Unity によるゲーム制作・機械学習などを勉強中。イメージ画像は制作中です。</p>
+      <p>本サイトは筆者の一作目となるものなので、至らぬ点が多数あります。どうかご容赦ください。サイトに関する意見などは大歓迎です。</p>
+      <h2>参考にしたサイトなど</h2>
+      <h3>リファレンス</h3>
+      <ul>
+        <li><a href="https://developer.mozilla.org/ja/">MDN Web Docs</a><br>HTML・CSS・JavaScript のリファレンスを掲載しているサイト。開発元は英語圏だが、日本語にも対応している。掲載されている情報はとても豊富であり、リファレンスのみでなく入門講座なども扱っているおすすめのサイト。(当サイトでは、主にこのサイトに載っている CSS のプロパティについて扱っています。)</li>
+        <li><a href="http://www.htmq.com/">HTML クイックリファレンス</a><br>HTML のリファレンスが主だが、CSS や JavaScript のリファレンスも載っているクイックリファレンスサイト。索引から素早く特定のプロパティの情報を見ることができる。リファレンスのみでなく、ウェブ制作のチュートリアルや小ネタなども掲載しており、豊富なコンテンツを有している。</li>
+      </ul>
+      <h3>画像関連</h3>
+      <ul>
+        <li><a href="https://icooon-mono.com/">ICOON MONO</a><br>シンプルで豊富なアイコンデザインを扱っているサイト。無料でダウンロードできる、質の高いアイコンサイト。本ページのアイコンやヘッダーの馬のアイコンはこのサイトから。</li>
+        <li><a href="https://pixabay.com/ja/">pixabay</a><br>高品質なフリー画像素材を扱っているサイト。ヘッダーの馬の画像はこのサイトから引用(<a href="https://pixabay.com/ja/users/rebeccaspictures-18516/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3390256">Rebecca Schönbrodt-Rühl</a>による<a href="https://pixabay.com/ja/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3390256">Pixabay</a>からの画像)。</li>
+      </ul>
+      <h2 id="inq">お問い合わせ</h2>
+      <p>CSS に関する質問や、当サイトにこういう情報を載せてほしいといった要望などを受け付けております。Gメールは <a href="mailto:tamatoramii3&#64;gmail.com">こちら</a> 。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
