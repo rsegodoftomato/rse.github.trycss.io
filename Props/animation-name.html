@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 animation-name">
+  <title>CSS を試してみよう：RSE CSS Page - animation-name</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#animation-name .change {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 100px;
+      left: 100px;
+      background: rgb(98, 107, 235);
+      animation: 3s linear infinite slide;
+    }
+
+    @keyframes slide {
+      50% { transform: translateX(400px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes rotate {
+      25% { transform: translate(400px, 0) rotate(180deg); }
+      50% { transform: translate(400px, 120px) rotate(360deg); }
+      75% { transform: translate(0, 120px) rotate(540deg); }
+      100% { transform: translate(0) rotate(720deg); }
+    }
+
+    @keyframes notches {
+      10%, 90% { transform: translate(80px, 120px); }
+      20%, 80% { transform: translate(160px, 0); }
+      30%, 70% { transform: translate(240px, 120px); }
+      40%, 60% { transform: translate(320px, 0); }
+      50% { transform: translate(400px, 120px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes triangle {
+      0%, 100% { transform: translate(200px, -50px); }
+      33% { transform: translate(400px, 170px); }
+      67% { transform: translate(0, 170px); }
+    }
+
+    @keyframes shake {
+      0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { transform: translate(180px, 60px); }
+      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { transform: translate(220px, 60px); }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > animation-name
+      </div>
+      <h1>animation-name</h1>
+      <p><b>animation-name</b> は、アニメーションの名前を指定するプロパティです。固有の名前を指定することで、キーフレームを用いたアニメーションのカスタマイズをすることができます。初期値は <b>none</b> です。</p>
+      <div class="attention">
+        <p>※ このプロパティで指定できる値は、あくまで自分で決めた固有の名前です。内部的に用意されている値は <b>none</b> などの特殊な値以外はありません。</p>
+      </div>
+      <h2>animation-name を試す</h2>
+      <p>以下では、著者が独自に設定したアニメーションに紐づく名前を選択肢にしています。</p>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="animation-name"
+            :values="[
+              { id: 1, text: 'slide', isSelected: true },
+              { id: 2, text: 'rotate', isSelected: false },
+              { id: 3, text: 'notches', isSelected: false },
+              { id: 4, text: 'triangle', isSelected: false },
+              { id: 5, text: 'shake', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="animation-name">
+          <div class="change"></div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
