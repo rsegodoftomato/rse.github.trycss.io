@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 animation">
+  <title>CSS を試してみよう：RSE CSS Page - animation</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#animation .change {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 100px;
+      left: 100px;
+      background: rgb(98, 107, 235);
+      animation: 3s linear 1.5s infinite slide;
+    }
+
+    @keyframes slide {
+      50% { transform: translateX(400px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes rotate {
+      25% { transform: translate(400px, 0) rotate(180deg); }
+      50% { transform: translate(400px, 120px) rotate(360deg); }
+      75% { transform: translate(0, 120px) rotate(540deg); }
+      100% { transform: translate(0) rotate(720deg); }
+    }
+
+    @keyframes notches {
+      10%, 90% { transform: translate(80px, 120px); }
+      20%, 80% { transform: translate(160px, 0); }
+      30%, 70% { transform: translate(240px, 120px); }
+      40%, 60% { transform: translate(320px, 0); }
+      50% { transform: translate(400px, 120px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes triangle {
+      0%, 100% { transform: translate(200px, -50px); }
+      33% { transform: translate(400px, 170px); }
+      67% { transform: translate(0, 170px); }
+    }
+
+    @keyframes shake {
+      0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { transform: translate(180px, 60px); }
+      5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% { transform: translate(220px, 60px); }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > animation
+      </div>
+      <h1>animation</h1>
+      <p><b>animation</b> は、アニメーションに関する一括指定プロパティです。<a href="animation-duration.html">duration</a>、<a href="animation-timing-function.html">timing-function</a>、<a href="animation-delay.html">delay</a>、<a href="animation-iteration-count.html">iteration-count</a>、<a href="animation-direction.html">direction</a>、<a href="animation-fill-mode.html">fill-mode</a>、<a href="animation-play-state.html">play-state</a>、<a href="animation-name.html">animetion-name</a> を一括指定します。</p>
+      <div class="attention">
+        <p>※ 詳しい値については個々のプロパティのページまで飛んでください。</p>
+      </div>
+      <h2>animation を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="animation"
+            :values="[
+              { id: 1, text: '3s linear 1.5s infinite slide', isSelected: true },
+              { id: 2, text: '5s cubic-bezier(0.3, -0.9, 0.5, 1) infinite rotate', isSelected: false },
+              { id: 3, text: '1s linear 2s infinite notches', isSelected: false },
+              { id: 4, text: '2s steps(4, jump-none) 4s infinite triangle', isSelected: false },
+              { id: 5, text: '3s infinite shake', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="animation">
+          <div class="change"></div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
