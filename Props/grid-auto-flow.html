@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 grid-auto-flow">
+  <title>CSS を試してみよう：RSE CSS Page - grid-auto-flow</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#grid-auto-flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 5px;
+    }
+
+    .content .try .output#grid-auto-flow div {
+      background: rgb(200, 200, 255);
+      border: 2px solid #000;
+      text-align: center;
+      line-height: 100px;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+    }
+
+    #one {
+      grid-column: 1 / 4;
+    }
+
+    #two {
+      grid-row: 3 / 5;
+    }
+
+    #three {
+      grid-column: 3 / 6;
+      grid-row: 2 / 4;
+    }
+
+    #five {
+      grid-column: 4 / span 3;
+      grid-row: 4 / 5;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > grid-auto-flow
+      </div>
+      <h1>grid-auto-flow</h1>
+      <p><b>grid-auto-flow</b> は、グリッドアイテムをそろえるかどうか指定するプロパティです。初期値は <b>row</b> です。</p>
+      <h2>grid-auto-flow を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="grid-auto-flow"
+            :values="[
+              { id: 1, text: 'row', isSelected: true },
+              { id: 2, text: 'column', isSelected: false },
+              { id: 3, text: 'dense', isSelected: false },
+              { id: 4, text: 'row dense', isSelected: false },
+              { id: 5, text: 'column dense', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output change" id="grid-auto-flow">
+          <div id="one">1</div>
+          <div id="two">2</div>
+          <div id="three">3</div>
+          <div>4</div>
+          <div id="five">5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
