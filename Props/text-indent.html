@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 text-indent">
+  <title>CSS を試してみよう：RSE CSS Page - text-indent</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#text-indent {
+      width: calc(95% - 100px);
+      height: 450px;
+      padding: 50px;
+    }
+
+    .content .try .output#text-indent p {
+      font-size: 32px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      text-indent: -50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > text-indent
+      </div>
+      <h1>text-indent</h1>
+      <p><b>text-indent</b> は、テキストの字下げの大きさを指定するプロパティです。初期値は <b>0</b> です。</p>
+      <h2>text-indent を試す</h2>
+      <div class="try">
+        <div id="ranges">
+          <range-select 
+            :props="{ prop: 'textIndent', unit: 'px', msg: '大きさ', min: -50, max: 500, step: 1 }"
+            @range-select="rangeSelect"
+          ></range-select>
+        </div>
+        <div class="output" id="text-indent">
+          <p class="change">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quod ipsa aspernatur, corrupti esse aperiam dolore, itaque voluptatem omnis incidunt fugit ex, laudantium expedita! Illo saepe eligendi voluptatum accusantium autem.</p>
+          <p class="change">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum officiis porro inventore! Perferendis voluptatum excepturi voluptas sequi numquam praesentium quas omnis iste placeat ratione odit error, vero officiis odio voluptatibus.</p>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copytext-indent untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/range.js"></script>
+</body>
+</html>
