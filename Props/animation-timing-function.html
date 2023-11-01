@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 animation-timing-function">
+  <title>CSS を試してみよう：RSE CSS Page - animation-timing-function</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#animation-timing-function .change {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 100px;
+      left: 100px;
+      background: rgb(98, 107, 235);
+      animation: 2s infinite slide;
+    }
+
+    @keyframes slide {
+      to { transform: translate(400px, 120px); }
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > animation-timing-function
+      </div>
+      <h1>animation-timing-function</h1>
+      <p><b>animation-timing-function</b> は、アニメーションの挙動を指定するプロパティです。初期値は <b>ease</b> です。</p>
+      <h2>animation-timing-function を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="animation-timing-function"
+            :values="[
+              { id: 1, text: 'ease', isSelected: true },
+              { id: 2, text: 'linear', isSelected: false },
+              { id: 3, text: 'ease-in', isSelected: false },
+              { id: 4, text: 'ease-out', isSelected: false },
+              { id: 5, text: 'ease-in-out', isSelected: false },
+              { id: 6, text: 'cubic-bezier(0.3, -0.8, 0.2, 1.3)', isSelected: false },
+              { id: 7, text: 'steps(5, jump-start)', isSelected: false },
+              { id: 8, text: 'steps(5, jump-end)', isSelected: false },
+              { id: 9, text: 'steps(5, jump-none)', isSelected: false },
+              { id: 10, text: 'steps(5, jump-both)', isSelected: false },
+              { id: 11, text: 'step-start', isSelected: false },
+              { id: 12, text: 'step-end', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="animation-timing-function">
+          <div class="change"></div>
+        </div>
+      </div>
+      <h2>補足</h2>
+      <h3>cubic-bezier</h3>
+      <p>ユーザー定義の２次元ベジェ関数を用いて挙動を表現します。詳細を知りたい方は、<a href="https://developer.mozilla.org/ja/docs/Web/CSS/easing-function">こちら( MDN )</a> まで。</p>
+      <h3>step 系</h3>
+      <p>第１引数に指定した数の文だけ段階分けして、飛び飛びでアニメーションを進行させます。第２引数は開始点と終了点を段階分けの際考慮するかどうか指定するキーワード値です。<br>また、<b>step-start</b> と <b>step-end</b> はそれぞれ <b>steps(1, jump-start)</b>、<b>steps(1, jump-end)</b> と同値です。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
