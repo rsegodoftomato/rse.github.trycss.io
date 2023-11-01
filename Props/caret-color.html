@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 caret-color">
+  <title>CSS を試してみよう：RSE CSS Page - caret-color</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#caret-color {
+      display: flex;
+      padding: 100px 150px;
+      width: calc(95% - 300px);
+      height: 350px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .content .try .output#caret-color label {
+      font-size: 24px;
+    }
+
+    .content .try .output#caret-color textarea {
+      width: 400px;
+      height: 200px;
+      font-size: 40px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > caret-color
+      </div>
+      <h1>caret-color</h1>
+      <p><b>caret-color</b> は、入力要素などにフォーカスしたときのマーカーであるキャレットの色を指定するプロパティです。初期値は <b>auto</b> です。</p>
+      <h2>caret-color を試す</h2>
+      <div class="try">
+        <div id="colors">
+          <color-select prop='caretColor' @color-select="colorSelect"></color-select>
+        </div>
+        <div class="select color" id="styles">
+          <styles-list
+            title="caret-color"
+            :values="[
+              { id: 1, text: 'auto', isSelected: true },
+              { id: 2, text: 'red', isSelected: false },
+              { id: 3, text: 'blue', isSelected: false },
+              { id: 4, text: 'green', isSelected: false },
+              { id: 5, text: 'orange', isSelected: false },
+              { id: 6, text: 'transparent', isSelected: false },
+              { id: 7, text: '#666', isSelected: false },
+              { id: 8, text: '#f09', isSelected: false },
+              { id: 9, text: '#71b', isSelected: false },
+              { id: 10, text: 'rgb(98, 107, 235)', isSelected: false },
+              { id: 11, text: 'rgb(244, 85, 10)', isSelected: false },
+              { id: 12, text: 'hsl(270, 60%, 70%)', isSelected: false },
+              { id: 13, text: 'hsl(30, 80%, 40%)', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="caret-color">
+          <label for="a">入力欄</label>
+          <textarea name="a" id="a" cols="30" rows="10" class="change"></textarea>
+        </div>
+      </div>
+      <h2>補足</h2>
+      <p><b>rgb</b> や <b>hsl</b> などについての詳細は <a href="../Categories.html#color">色関連</a> のページをご覧ください。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+  <script src="../js/color.js"></script>
+</body>
+</html>
