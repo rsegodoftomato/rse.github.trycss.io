@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 outline-color">
+  <title>CSS を試してみよう：RSE CSS Page - outline-color</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#outline-color {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content .try .output#outline-color .change {
+      width: 60%;
+      height: 60%;
+      outline: 50px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > outline-color
+      </div>
+      <h1>outline-color</h1>
+      <p><b>outline-color</b> は、輪郭線の色を指定するプロパティです。キーワード、<a href="rgb-rgba.html">rgb/rgba</a>、<a href="hsl-hsla.html">hsl/hsla</a> などの値が使えます。初期値は <b>invert</b> (ブラウザが対応していなければ <b>currentcolor</b> ) です。</p>
+      <h2>outline-color を試す</h2>
+      <div class="try">
+        <div id="colors">
+          <color-select prop='outlineColor' @color-select="colorSelect"></color-select>
+        </div>
+        <div class="select color" id="styles">
+          <styles-list
+            title="outline-color"
+            :values="[
+              { id: 1, text: 'red', isSelected: true },
+              { id: 2, text: 'blue', isSelected: false },
+              { id: 3, text: 'green', isSelected: false },
+              { id: 4, text: 'orange', isSelected: false },
+              { id: 5, text: 'brown', isSelected: false },
+              { id: 6, text: '#f09', isSelected: false },
+              { id: 7, text: '#3a38', isSelected: false },
+              { id: 8, text: 'rgb(98, 107, 235)', isSelected: false },
+              { id: 9, text: 'hsl(270, 60%, 70%)', isSelected: false },
+              { id: 10, text: 'red yellow', isSelected: false },
+              { id: 11, text: 'rgb(244, 107, 235) blue', isSelected: false },
+              { id: 12, text: 'rgb(244, 85, 10) #71b skyblue', isSelected: false },
+              { id: 13, text: 'hsla(30, 79%, 50%, .5) black cyan #541d66', isSelected: false },
+              { id: 14, text: 'slateblue rgba(0, 0, 0, .8) hsla(170, 30%, 80%, .7) #8e6', isSelected: false },
+              { id: 15, text: 'yellow red orange pink', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="outline-color">
+          <div class="change"></div>
+        </div>
+      </div>
+      <h2>補足</h2>
+      <p><b>rgb</b> や <b>hsl</b> などについての詳細は <a href="../Categories.html#color">色関連</a> のページをご覧ください。</p>
+      <p><b>border</b>(境界線) との違いは、境界線がその要素に含まれているのに対し、輪郭線は要素の外部を覆う線であり、境界線の外に描かれます。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+  <script src="../js/color.js"></script>
+</body>
+</html>
