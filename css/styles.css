@@ -1,0 +1,380 @@
+body {
+  background: #ddd;
+  margin: 0;
+  width: 1800px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+  background: #fff;
+  width: 100%;
+  height: 100px;
+  user-select: none;
+}
+
+header a {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  line-height: 100px;
+  width: 500px;
+}
+
+header a img {
+  width: 70px;
+  margin-left: 100px;
+}
+
+header a p {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  margin-left: 30px;
+  color: #000;
+}
+
+header .inq {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 36px;
+  left: 1450px;
+  width: 260px;
+}
+
+header .inq input[type="search"] {
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+header .inq input[type="submit"] {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.intro {
+  width: inherit;
+  height: 450px;
+  background: linear-gradient(to bottom right, #888, #000 50%);
+}
+
+.intro img {
+  height: 400px;
+  margin-top: 50px;
+  position: absolute;
+  top: 100px;
+  left: 1350px;
+  width: 450px;
+  object-fit: cover;
+}
+
+.intro div {
+  padding-top: 150px;
+  padding-left: 300px;
+}
+
+.intro p {
+  color: #fff;
+  font-size: 24px;
+  margin: 0;
+}
+
+.intro p#h-title {
+  width: max-content;
+  font-size: 40px;
+  margin-bottom: 50px;
+  border-bottom: 1.5px solid #fff;
+}
+
+.main {
+  margin: 60px auto 50px;
+  width: 1500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .content {
+  width: 850px;
+  padding: 100px;
+  background: #fff;
+}
+
+.main nav {
+  width: 350px;
+  height: max-content;
+  padding: 25px;
+  background: #fff;
+}
+
+.content h1 {
+  font-size: 32px;
+  margin: 0;
+  text-shadow: 2px 2px 1px #ccc;
+}
+
+.content p {
+  font-size: 20px;
+  margin: 40px 0 20px 15px;
+  line-height: 2.5;
+}
+
+.content h2 {
+  background: rgb(207, 228, 253);
+  width: 800px;
+  padding: 12px 20px;
+  font-size: 26px;
+  box-shadow: 3px 3px 3px rgb(125, 125, 231);
+  border-left: 10px solid #000;
+  margin-top: 80px;
+}
+
+.content h3 {
+  font-size: 22px;
+  border-bottom: 2px solid #000;
+  width: max-content;
+  padding: 0 10px 0 5px;
+  margin-top: 40px;
+}
+
+.content li {
+  font-size: 20px;
+  line-height: 2;
+}
+
+.content .index {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .index a {
+  display: inline-block;
+  width: 75px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #000;
+  font-size: 20px;
+  margin: 10px;
+  background: rgb(226, 246, 252);
+  color: #000;
+}
+
+.content .index a:hover {
+  background: rgb(219, 234, 238);
+}
+
+.content .loc {
+  background: rgb(236, 252, 226);
+  padding: 10px 17px;
+  font-size: 16px;
+  border: 1.5px solid rgb(29, 180, 16);
+  width: 800px;
+  margin-bottom: 50px;
+}
+
+.content .caution, .content .attention {
+  padding: 15px 30px;
+  margin-top: 50px;
+}
+
+.content .caution p, .content .attention p {
+  margin: 0;
+}
+
+.content .caution {
+  background: rgb(255, 207, 207);
+  border: 2px solid red;
+}
+
+.content .attention {
+  background: rgb(254, 255, 209);
+  border: 2px solid rgb(255, 230, 0);
+}
+
+.content .try {
+  height: 900px;
+  margin: 50px auto 0;
+  background: #eee;
+  border: 1.5px solid #000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 15px;
+  user-select: none;
+}
+
+.content .try .select {
+  width: 95%;
+  height: 250px;
+  background: #fff;
+  padding: 3px;
+  border: 1.5px solid #000;
+  overflow: scroll;
+}
+
+.content .try .select.color {
+  height: 220px;
+}
+
+.content .try #colors {
+  width: 95%;
+}
+
+.content .try .c-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  padding: 10px 0;
+  border: 1.5px solid #000;
+}
+
+.content .try .c-select #color {
+  width: 200px;
+  height: 40px;
+}
+
+.content .try .c-select #text {
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+.content .try .select .style {
+  font-size: 18px;
+  padding: 15px;
+  border: 1px solid #000;
+  background: #fff;
+  margin-bottom: 5px;
+}
+
+.content .try .select .style:hover {
+  cursor: pointer;
+  background: #eee;
+}
+
+.content .try .select .style.selected {
+  background: rgb(253, 241, 222);
+  border: 2px solid #000;
+}
+
+.content .try .output {
+  width: 95%;
+  height: 550px;
+  background: #fff;
+  border: 1.5px solid #000;
+}
+
+.content .try .output .waiting {
+  font-size: 24px;
+  position: relative;
+  top: 0;
+  left: 20px;
+  display: none;
+}
+
+.content .try .conditions {
+  background: #fff;
+  padding: 30px;
+  margin-top: 20px;
+  border: 1.5px solid #000;
+}
+
+.content .try .conditions p {
+  margin: 0;
+}
+
+.content .try .conditions .text {
+  display: flex;
+  justify-content: center;
+}
+
+.content .try .conditions .text #result {
+  width: 50px;
+  text-align: center;
+}
+
+.content .try .conditions .text input[type="range"] {
+  width: 250px;
+}
+
+.content .try .text {
+  font-size: 20px;
+  margin: 15px auto 0;
+}
+
+.content .try .text input {
+  font-size: 16px;
+}
+
+.content .try .text input[type="text"] {
+  padding: 5px;
+}
+
+.content .try .text input[type="text"].wrong {
+  background: rgb(250, 206, 206);
+  border: 1.5px solid red;
+}
+
+.content .radio {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.content .radio p {
+  margin: 0;
+}
+
+.content .radio input[type="radio"] {
+  margin: 0 10px 0 20px;
+}
+
+.content .radio label {
+  font-size: 20px;
+}
+
+.content .top {
+  margin-top: 50px;
+}
+
+.content .top a {
+  font-size: 20px;
+}
+
+nav {
+  position: sticky;
+  top: 50px;
+}
+
+nav .title {
+  background: rgb(202, 253, 204);
+  padding: 5px;
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  border-left: 5px solid #000;
+  box-shadow: 2px 2px 2px rgb(89, 177, 101);
+}
+
+nav .index {
+  margin: 20px 0 40px 20px;
+}
+
+nav .index a {
+  font-size: 20px;
+  line-height: 2;
+  width: 50px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+footer {
+  height: 150px;
+  background: #000;
+  text-align: center;
+  line-height: 150px;
+  color: #fff;
+}
