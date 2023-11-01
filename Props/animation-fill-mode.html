@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 animation-fill-mode">
+  <title>CSS を試してみよう：RSE CSS Page - animation-fill-mode</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#animation-fill-mode div {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .content .try .output#animation-fill-mode .change {
+      top: 100px;
+      left: 100px;
+      background: #fff;
+    }
+
+    .content .try .output#animation-fill-mode .initial {
+      top: 50px;
+      left: 350px;
+      background: rgb(98, 107, 235);
+      font-size: 24px;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > animation-fill-mode
+      </div>
+      <h1>animation-fill-mode</h1>
+      <p><b>animation-fill-mode</b> は、アニメーションの前後(開始前と終了後)のスタイルを指定するプロパティです。主に「アニメーション開始時/終了時のスタイルを保持するか、他のスタイルを優先するか」についての指定となります。初期値は <b>none</b> です。</p>
+      <h2>animation-fill-mode を試す</h2>
+      <div class="try">
+        <div class="select">
+          <div class="style" id="none">animation-fill-mode: none;</div>
+          <div class="style" id="forwards">animation-fill-mode: forwards;</div>
+          <div class="style" id="backwards">animation-fill-mode: backwards;</div>
+          <div class="style" id="both">animation-fill-mode: both;</div>
+        </div>
+        <div class="output" id="animation-fill-mode">
+          <div class="change"></div>
+          <div class="initial">初期位置</div>
+          <div class="waiting">waiting...</div>
+        </div>
+      </div>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    'use strict';
+
+    (() => {
+
+      $('#none').click(function() {
+        initialize(1);
+        move(1, 1);
+      });
+
+      $('#forwards').click(function() {
+        initialize(1);
+        move(1, 0);
+      });
+
+      $('#backwards').click(function() {
+        initialize(0.5);
+        move(0, 1);
+      });
+
+      $('#both').click(function() {
+        initialize(0.5);
+        move(0, 0);
+      });
+
+      function color(n) {
+        return (n === 1 ? '#fff' : 'rgb(98, 107, 235)');
+      }
+
+      function initialize(num) {
+        $('.change').css({ background: color(num), left: '100px' });
+        $('.initial').css({ opacity: num });
+        $('.select').css({ pointerEvents: 'none' });
+        $('.waiting').show();
+      }
+
+      function move(n, m) {
+        setTimeout(function() {
+          if (n === 1) {
+            $('.change').css({ background: 'rgb(98, 107, 235)' });
+            $('.initial').css({ opacity: .5 });
+          }
+          $('.waiting').hide();
+          animate(m);
+        }, 2000);
+      }
+
+      function animate(m) {
+        $('.change').animate({ left: '500px' }, {
+          duration: 3000,
+          complete: function() {
+            if (m === 1) {
+              $('.change').css({ background: '#fff' });
+              $('.initial').css({ opacity: 1 });
+            }
+            $('.select').css({ pointerEvents: 'initial' });
+          }
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>
