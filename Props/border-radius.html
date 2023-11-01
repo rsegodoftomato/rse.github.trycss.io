@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="rse-godoftomato">
+  <meta name="description" content="このページでは、CSSによるスタイリングについて、色相やスタイルの種類などを直感的に操作して試すことができます。">
+  <meta name="keywords" content="CSS HTML ウェブ プログラミング 入門 リファレンス 試す RSE Page 初心者 border-radius">
+  <title>CSS を試してみよう：RSE CSS Page - border-radius</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/horse.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    .content .try .output#border-radius {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content .try .output#border-radius .change {
+      width: 70%;
+      height: 70%;
+      border: 20px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <header-component
+      :homePath="'../' + homepath"
+      :imgPath="'../' + imgpath"
+      :actionPath="actionpath"
+    ></header-component>
+  </div>
+  <div class="main">
+    <div class="content">
+      <div class="loc">
+        <a href="../index.html">ホーム</a> > <a href="../ABCindex.html">索引(ABC 順)</a>/<a href="../Categories.html">カテゴリー別</a> > border-radius
+      </div>
+      <h1>border-radius</h1>
+      <p><b>border-radius</b> は、境界線の角の丸みを指定するプロパティです。初期値は <b>0</b> です。</p>
+      <h2>border-radius を試す</h2>
+      <div class="try">
+        <div class="select" id="styles">
+          <styles-list
+            title="border-radius"
+            :values="[
+              { id: 1, text: '0', isSelected: true },
+              { id: 2, text: '50px', isSelected: false },
+              { id: 3, text: '20%', isSelected: false },
+              { id: 4, text: '60px 180px', isSelected: false },
+              { id: 5, text: '60% 10%', isSelected: false },
+              { id: 6, text: '160px 45% 70px', isSelected: false },
+              { id: 7, text: '30% 40% 50%', isSelected: false },
+              { id: 8, text: '80px 160px 240px 320px', isSelected: false },
+              { id: 9, text: '60% 20% 40% 0', isSelected: false },
+              { id: 10, text: '200px / 50px', isSelected: false },
+              { id: 11, text: '20% / 50%', isSelected: false },
+              { id: 12, text: '180px 25% / 200px 400px', isSelected: false },
+              { id: 13, text: '180px 90px 5em / 200px 250px 30%', isSelected: false },
+              { id: 14, text: '180px 25% / 200px 25em 300px 35%', isSelected: false },
+              { id: 15, text: '120px 240px 360px 480px / 50% 40% 30% 20%', isSelected: false }
+            ]"
+            @change-selected="changeSelected"
+          ></styles-list>
+        </div>
+        <div class="output" id="border-radius">
+          <div class="change"></div>
+        </div>
+      </div>
+      <h2>補足</h2>
+      <p><b>border-top-right-radius</b>、<b>border-bottom-left-radius</b> などで各辺ごとのスタイルの指定も可能です(<b>border-radius</b> は一種の一括指定プロパティです)。</p>
+    </div>
+    <nav id="indexes">
+      <div class="title">索引(ABC 順)</div>
+      <div class="index">
+        <a-list
+          v-for="alist in alists"
+          :key="alist.id"
+          :path="'../ABCindex.html' + alist.path"
+          :title="alist.title"
+        ></a-list>
+      </div>
+      <div class="title">カテゴリー別</div>
+      <div class="index">
+        <c-list
+          v-for="clist in clists"
+          :key="clist.id"
+          :path="clist.path"
+          :title="clist.title"
+        ></c-list>
+      </div>
+    </nav>
+  </div>
+  <footer>
+    <p>@ Copyright untara-kantara something will be written here...</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/select.js"></script>
+</body>
+</html>
